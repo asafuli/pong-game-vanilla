@@ -1,4 +1,5 @@
 const INITIAL_VELOCITY = 0.03;
+const ACCELERATION = 1.4;
 
 export default class Ball {
   constructor(id) {
@@ -9,6 +10,7 @@ export default class Ball {
     this.signX = 1;
     this.signY = 1;
     this.velocity = INITIAL_VELOCITY;
+    this.acceleration = ACCELERATION;
   }
 
   get x() {
@@ -40,8 +42,10 @@ export default class Ball {
     // if (left > window.innerWidth || right < 0) {
     //   this.signX = -this.signX;
     // }
-    this.x += this.direction.x * this.velocity * delta * this.signX;
-    this.y += this.direction.y * this.velocity * delta * this.signY;
+    this.x +=
+      this.direction.x * this.velocity * delta * this.acceleration * this.signX;
+    this.y +=
+      this.direction.y * this.velocity * delta * this.acceleration * this.signY;
   }
 
   randomDirection = (min, max) => {

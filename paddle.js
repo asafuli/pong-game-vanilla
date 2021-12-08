@@ -1,5 +1,5 @@
 const INITIAL_VELOCITY = 1.5;
-const INITIAL_COMPUTER_VELOCITY = 0.2;
+const INITIAL_COMPUTER_VELOCITY = 0.1;
 
 export default class Paddle {
   constructor(id) {
@@ -51,14 +51,10 @@ export default class Paddle {
     if (this.paddle.getAttribute('id') === 'computer-paddle') {
       // console.log(this.lastBallX, ball.x);
       if (this.lastBallX - ball.x > 0) {
-        if (ball.y > this.position && this.lastBallY < ball.y) {
-          this.position += this.computerVelocity;
-        } else if (ball.y < this.position && this.lastBallY > ball.y) {
-          this.position -= this.computerVelocity;
-        }
+        this.position += this.computerVelocity * (ball.y - this.position);
       }
       this.lastBallX = ball.x;
-      this.lastBallY = ball.y;
+      // this.lastBallY = ball.y;
     }
 
     if (this.paddle.getAttribute('id') === 'player-paddle') {
