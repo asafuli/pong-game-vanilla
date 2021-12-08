@@ -45,9 +45,25 @@ body {
   width: 2.5vh;
   height: 2.5vh;
   background-color: var(--objects-color);
+  /* background-image: url('./_MG_5525.JPG'); */
+  background-size: cover;
+  background-repeat: no-repeat;
   top: calc(var(--y) * 1vh);
   right: calc(var(--x) * 1vw);
   border-radius: 50%;
+}
+
+.ball.play {
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 .score {
@@ -81,7 +97,7 @@ li.nav-item {
   margin: 0.2rem 0.2rem;
 }
 
-button{
-  background-color:var(--objects-color);
+button {
+  background-color: var(--objects-color);
   font-size: 1.5rem;
 }

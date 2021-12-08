@@ -14,7 +14,7 @@ let play = false;
 let newGame = false;
 
 const reset = () => {
-  lastTime;
+  togglePlayBTN.innerText = 'המשך משחק';
   ball = new Ball('ball');
   playerPaddle = new Paddle('player-paddle');
   computerPaddle = new Paddle('computer-paddle');
@@ -24,7 +24,10 @@ const reset = () => {
     playerScore.innerText = '0';
     computerScore.innerText = '0';
     newGame = false;
+    togglePlayBTN.innerText = 'התחל משחק';
   }
+  let randTheme = Math.random() * 1000;
+  document.documentElement.style.setProperty('--hue', randTheme);
 };
 
 const addListeners = () => {
@@ -33,14 +36,22 @@ const addListeners = () => {
 };
 
 const togglePlay = () => {
-  if (play) togglePlayBTN.innerText = 'עצור משחק';
-  if (!play) togglePlayBTN.innerText = 'המשך משחק';
+  if (play) {
+    togglePlayBTN.innerText = 'המשך משחק';
+    console.log(ball.classList);
+    ball.ball.classList.remove('play');
+    // ball.classList.remove('play');
+  } else if (!play) {
+    togglePlayBTN.innerText = 'עצור משחק';
+    // ball.classList.add('play');
+    ball.ball.classList.add('play');
+  }
   play = !play;
 };
 
 const restart = () => {
   newGame = true;
-  togglePlayBTN.innerText = 'התחל משחק';
+  ball.ball.classList.remove('play');
   reset();
 };
 
@@ -58,9 +69,9 @@ const checkStatus = () => {
       (bottom > topBall && topBall > top)) &&
     right >= leftBall
   ) {
-    console.log('hit');
-    console.log(bottom, top, right, left);
-    console.log(bottomBall, topBall, rightBall, leftBall);
+    // console.log('hit');
+    // console.log(bottom, top, right, left);
+    // console.log(bottomBall, topBall, rightBall, leftBall);
     ball.signX = -ball.signX;
   }
 
@@ -77,16 +88,16 @@ const checkStatus = () => {
     left: leftComputer,
   } = computerPaddle.rect();
 
-  console.log(bottomComputer, topComputer, rightComputer, leftComputer);
+  // console.log(bottomComputer, topComputer, rightComputer, leftComputer);
 
   if (
     ((bottomComputer > bottomBall && bottomBall > topComputer) ||
       (bottomComputer > topBall && topBall > topComputer)) &&
     leftComputer <= rightBall
   ) {
-    console.log('hit computer');
-    console.log(bottomComputer, topComputer, rightComputer, leftComputer);
-    console.log(bottomBall, topBall, rightBall, leftBall);
+    // console.log('hit computer');
+    // console.log(bottomComputer, topComputer, rightComputer, leftComputer);
+    // console.log(bottomBall, topBall, rightBall, leftBall);
     ball.signX = -ball.signX;
   }
   if (window.innerWidth <= leftBall && !breakLoop) {

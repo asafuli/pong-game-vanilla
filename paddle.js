@@ -49,7 +49,7 @@ export default class Paddle {
   update(delta, ball) {
     let { bottom, top } = this.rect();
     if (this.paddle.getAttribute('id') === 'computer-paddle') {
-      console.log(this.lastBallX, ball.x);
+      // console.log(this.lastBallX, ball.x);
       if (this.lastBallX - ball.x > 0) {
         if (ball.y > this.position && this.lastBallY < ball.y) {
           this.position += this.computerVelocity;
