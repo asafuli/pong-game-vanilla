@@ -76,7 +76,7 @@ const checkStatus = () => {
   }
 
   if (0 >= rightBall && !breakLoop) {
-    computerScore.innerText = parseInt(computerScore.innerText) + 1;
+    // computerScore.innerText = parseInt(computerScore.innerText) + 1;
     breakLoop = true;
     reset();
   }
@@ -101,7 +101,7 @@ const checkStatus = () => {
     ball.signX = -ball.signX;
   }
   if (window.innerWidth <= leftBall && !breakLoop) {
-    playerScore.innerText = parseInt(playerScore.innerText) + 1;
+    // playerScore.innerText = parseInt(playerScore.innerText) + 1;
     breakLoop = true;
     reset();
   }
