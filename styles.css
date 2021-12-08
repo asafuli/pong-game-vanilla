@@ -1,0 +1,87 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hue: 200;
+  --saturation: 50%;
+  --foreground: hsl(var(--hue), var(--saturation), 50%);
+  --objects-color: hsl(var(--hue), var(--saturation), 70%);
+}
+
+body {
+  background-color: var(--foreground);
+  overflow: hidden;
+}
+
+.paddle {
+  --position: 50;
+
+  position: absolute;
+  width: 1vh;
+  height: 12vh;
+  background-color: var(--objects-color);
+  transform: translateY(-50%);
+  top: calc(var(--position) * 1vh);
+}
+
+.paddle.right {
+  left: 1vw;
+}
+
+.paddle.left {
+  right: 1vw;
+}
+
+.ball {
+  --x: 50;
+  --y: 50;
+
+  position: absolute;
+  width: 2.5vh;
+  height: 2.5vh;
+  background-color: var(--objects-color);
+  top: calc(var(--y) * 1vh);
+  right: calc(var(--x) * 1vw);
+  border-radius: 50%;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  color: var(--objects-color);
+  font-size: 7vh;
+  font-weight: bold;
+}
+
+.score > * {
+  flex-grow: 1;
+  flex-basis: 0;
+  opacity: 0.7;
+  /* padding: 0 2vh; */
+  margin: 1vh 0;
+}
+
+.score.right {
+  border-right: 0.5rem solid var(--objects-color);
+  text-align: right;
+}
+
+ul.navbar {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+li.nav-item {
+  margin: 0.2rem 0.2rem;
+}
+
+button{
+  background-color:var(--objects-color);
+  font-size: 1.5rem;
+}
