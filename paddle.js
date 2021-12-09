@@ -1,5 +1,5 @@
 const INITIAL_VELOCITY = 1.5;
-const INITIAL_COMPUTER_VELOCITY = 0.1;
+const INITIAL_COMPUTER_VELOCITY = 0.06;
 
 export default class Paddle {
   constructor(id) {

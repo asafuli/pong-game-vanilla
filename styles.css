@@ -42,10 +42,10 @@ body {
   --y: 50;
 
   position: absolute;
-  width: 2.5vh;
-  height: 2.5vh;
-  background-color: var(--objects-color);
-  /* background-image: url('./_MG_5525.JPG'); */
+  width: 4.5vh;
+  height: 4.5vh;
+  /* background-color: var(--objects-color); */
+  background-image: url('./ball.png');
   background-size: cover;
   background-repeat: no-repeat;
   top: calc(var(--y) * 1vh);
@@ -54,15 +54,28 @@ body {
 }
 
 .ball.play {
-  animation: rotation 2s infinite linear;
+  animation: 2s rotation infinite linear;
 }
 
+/* .ball::after {
+  content: linear-gradient(#e66465, #9198e5);
+  position: absolute;
+  top: 0;
+  left: 4vh;
+  right: 0;
+  margin: 0 auto;
+  width: 4.5vh;
+  height: 4.5vh;
+}  */
+
 @keyframes rotation {
-  from {
+  0% {
     transform: rotate(0deg);
+    /* opacity: 0.3; */
   }
-  to {
+  100% {
     transform: rotate(359deg);
+    /* opacity: 0.7; */
   }
 }
 

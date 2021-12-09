@@ -9,7 +9,10 @@ let playerScore = document.getElementById('right-score');
 let computerScore = document.getElementById('left-score');
 let togglePlayBTN = document.querySelector('.toggle-play');
 let restartGameBTN = document.querySelector('.restart');
+let song = document.querySelector('audio');
+let musicBTN = document.querySelector('.toggle-music');
 let breakLoop = false;
+let playMusic = false;
 let play = false;
 let newGame = false;
 
@@ -33,20 +36,30 @@ const reset = () => {
 const addListeners = () => {
   togglePlayBTN.addEventListener('click', () => togglePlay());
   restartGameBTN.addEventListener('click', () => restart());
+  musicBTN.addEventListener('click', () => toggleMusic());
 };
 
 const togglePlay = () => {
   if (play) {
     togglePlayBTN.innerText = 'המשך משחק';
-    console.log(ball.classList);
     ball.ball.classList.remove('play');
-    // ball.classList.remove('play');
   } else if (!play) {
     togglePlayBTN.innerText = 'עצור משחק';
-    // ball.classList.add('play');
     ball.ball.classList.add('play');
   }
   play = !play;
+};
+
+const toggleMusic = () => {
+  if (playMusic) {
+    musicBTN.innerText = 'המשך מוזיקה';
+    song.pause();
+  } else if (!playMusic) {
+    musicBTN.innerText = 'הפסק מוזיקה';
+    song.play();
+    // console.log(musicBTN, promise);
+  }
+  playMusic = !playMusic;
 };
 
 const restart = () => {
