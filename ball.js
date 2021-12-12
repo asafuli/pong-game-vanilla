@@ -49,7 +49,9 @@ export default class Ball {
   }
 
   randomDirection = (min, max) => {
-    return Math.random() * (max - min) + min;
+    let sign = Math.pow(-1, Math.floor(Math.random() * 10) % 2);
+    console.log(sign);
+    return Math.random() * sign * (max - min) + min;
   };
 
   findRandomDirection = function () {
@@ -57,14 +59,16 @@ export default class Ball {
     let rand = 0;
     while (!found) {
       rand = this.randomDirection(0, 2 * Math.PI);
+      let absoluteRand = Math.abs(rand);
       if (
-        Math.abs(0.1 <= rand && 0.45 >= rand) ||
-        Math.abs(0.55 <= rand && rand <= 0.9)
+        (0.2 <= absoluteRand && 0.45 >= absoluteRand) ||
+        (0.55 <= absoluteRand && absoluteRand <= 0.8)
       )
         found = true;
     }
-    let x = Math.cos(rand);
-    let y = Math.sin(rand);
+    console.log(rand);
+    let y = Math.cos(rand);
+    let x = Math.sin(rand);
     return { x, y };
   };
 }
