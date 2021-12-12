@@ -19,7 +19,7 @@ export default class Ball {
 
   set x(value) {
     this.ball.style.setProperty('--x', value);
-  }
+\  }
 
   get y() {
     return parseFloat(this.ball.style.getPropertyValue('--y'));
