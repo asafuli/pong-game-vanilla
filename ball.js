@@ -57,7 +57,8 @@ export default class Ball {
     let rand = 0;
     while (!found) {
       rand = this.randomDirection(0, 2 * Math.PI);
-      if (0.1 <= rand && rand <= 0.9) found = true;
+      if ((0.1 <= rand && 0.4 >= rand) || (0.65 <= rand && rand <= 0.9))
+        found = true;
     }
     let x = Math.cos(rand);
     let y = Math.sin(rand);
